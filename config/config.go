@@ -1,12 +1,8 @@
 package config
 
-import "fmt"
-
-type App struct {
-	Owner string `yaml:"owner"`
-	Repo  string `yaml:"repo"`
-	Tag   string `yaml:"tag"`
-}
+import (
+	"fmt"
+)
 
 type Config struct {
 	Apps []App `yaml:"apps"`
