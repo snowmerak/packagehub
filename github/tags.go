@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 )
 
 type Tags []struct {
@@ -104,5 +105,7 @@ func (c *Client) DownloadAndUntarTag(owner, repo, tag, path string) (string, err
 	if err != nil {
 		return "", fmt.Errorf("Client.DownloadAndSaveTag: Untar: %w", err)
 	}
+	rootName = strings.Trim(rootName, "/")
+	rootName = strings.Trim(rootName, "\\")
 	return rootName, nil
 }
