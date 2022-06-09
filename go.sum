@@ -2,5 +2,3 @@ github.com/btcsuite/winsvc v1.0.0 h1:J9B4L7e3oqhXOcm+2IuNApwzQec85lE+QaikUcCs+dk
 github.com/btcsuite/winsvc v1.0.0/go.mod h1:jsenWakMcC0zFBFurPLEAyrnc/teJEM1O46fmI40EZs=
 github.com/luisiturrios/gowin v0.0.0-20211223180722-2e88a53ef0f9 h1:KUXk8htBrQs4VbVIEMy+5i8mHcWTFP/MCBLlXq5awMU=
 github.com/luisiturrios/gowin v0.0.0-20211223180722-2e88a53ef0f9/go.mod h1:I2wAi7YNrvMJWpvtZ7MOn1Q7B46zYRQKC8vXZF478z8=
-golang.org/x/sys v0.0.0-20220608164250-635b8c9b7f68 h1:z8Hj/bl9cOV2grsOpEaQFUaly0JWN3i97mo3jXKJNp0=
-golang.org/x/sys v0.0.0-20220608164250-635b8c9b7f68/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
