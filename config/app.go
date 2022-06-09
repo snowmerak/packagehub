@@ -13,3 +13,26 @@ type App struct {
 	Environments []Environment `yaml:"environments"`
 	Dependencies []App         `yaml:"dependencies"`
 }
+
+func NewApp(owner, repo, tag string) *App {
+	return &App{
+		Owner: owner,
+		Repo:  repo,
+		Tag:   tag,
+	}
+}
+
+func (a *App) AddEnvironment(key, value string) {
+	a.Environments = append(a.Environments, Environment{
+		Key:   key,
+		Value: value,
+	})
+}
+
+func (a *App) AddDependency(owner, repo, tag string) {
+	a.Dependencies = append(a.Dependencies, App{
+		Owner: owner,
+		Repo:  repo,
+		Tag:   tag,
+	})
+}
