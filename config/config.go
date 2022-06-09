@@ -8,7 +8,7 @@ type Config struct {
 	Apps []App `yaml:"apps"`
 }
 
-func New() Config {
+func NewConfig() Config {
 	return Config{}
 }
 
