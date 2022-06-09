@@ -83,3 +83,26 @@ func (c *Client) DownloadAndSaveTag(owner, repo, tag, path string) error {
 	}
 	return nil
 }
+
+func (c *Client) DownloadAndUntarTag(owner, repo, tag, path string) (string, error) {
+	if err := os.MkdirAll(path, 0755); err != nil {
+		return "", fmt.Errorf("Client.DownloadAndUntarTag: os.MkdirAll: %w", err)
+	}
+	req, err := http.NewRequest("GET", "https://api.github.com/repos/"+owner+"/"+repo+"/tarball/refs/tags/"+tag, nil)
+	if err != nil {
+		return "", fmt.Errorf("Client.DownloadAndSaveTag: http.NewRequest: %w", err)
+	}
+	resp, err := c.client.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("Client.DownloadAndSaveTag: c.client.Do: %w", err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		return "", fmt.Errorf("Client.DownloadTag: status code: %d", resp.StatusCode)
+	}
+	defer resp.Body.Close()
+	rootName, err := Untar(path, resp.Body)
+	if err != nil {
+		return "", fmt.Errorf("Client.DownloadAndSaveTag: Untar: %w", err)
+	}
+	return rootName, nil
+}
